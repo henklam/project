@@ -3,10 +3,10 @@ self.addEventListener('install', (event) => {
       caches.open('pwa-cache').then((cache) => {
         return cache.addAll([
           '/',
-          '/index.html',
-          '/app.js',
-          '/index.js',
-          '/app.html'
+          'index.html',
+          'app.js',
+          'index.js',
+          'app.html'
         ]);
       })
     );
