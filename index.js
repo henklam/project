@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyB3hSG2MpJnTMz5JUg2mDOs6bjto5FAGuc",
@@ -38,6 +38,12 @@ function signIn() {
             console.log(errorMessage);
         });
 }
+
+onAuthStateChanged(auth, (user) => {
+    if(user) {
+        document.location.href = "app.html";
+    }
+});
 
 button.addEventListener("click", signIn);
 
